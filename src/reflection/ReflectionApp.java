@@ -13,6 +13,7 @@ public class ReflectionApp {
         superClassDemo();
         modifiersDemo();
         packagesDemo();
+        annotationDemo();
     }
 
     private static void initiateClassDemo() {
@@ -132,5 +133,10 @@ public class ReflectionApp {
 
         System.out.println(aPackage.getName());
         System.out.println(Arrays.toString(aPackage.getAnnotations()));
+    }
+
+    private static void annotationDemo() throws IllegalAccessException {
+        Person person = new Person();
+        Validator.validateNotBlank(person);
     }
 }

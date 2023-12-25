@@ -3,6 +3,7 @@ package reflection;
 public class Person {
     private String firstName;
 
+    @NotBlank(allowEmptyString = false)
     private String lastName;
 
     public Person() {
