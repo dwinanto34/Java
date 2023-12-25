@@ -2,6 +2,7 @@ package reflection;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
+import java.util.List;
 
 public class ReflectionApp {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException {
@@ -14,6 +15,7 @@ public class ReflectionApp {
         modifiersDemo();
         packagesDemo();
         annotationDemo();
+        parameterizedTypesDemo();
     }
 
     private static void initiateClassDemo() {
@@ -138,5 +140,43 @@ public class ReflectionApp {
     private static void annotationDemo() throws IllegalAccessException {
         Person person = new Person();
         Validator.validateNotBlank(person);
+    }
+
+    private static void parameterizedTypesDemo() throws NoSuchMethodException {
+        Class<Product> productClass = Product.class;
+
+        // map, list, etc are considered as parameterized types
+
+        // for getter
+        System.out.println("Getter");
+        Method getterVarianListMethod = productClass.getDeclaredMethod("getVarianList");
+        Type type = getterVarianListMethod.getGenericReturnType();
+
+        if (type instanceof ParameterizedType) {
+            ParameterizedType parameterizedType = (ParameterizedType) type;
+            // java.util.List<java.lang.String>
+            System.out.println(parameterizedType.getTypeName());
+            // interface java.util.List
+            System.out.println(parameterizedType.getRawType());
+            // [class java.lang.String]
+            System.out.println(Arrays.toString(parameterizedType.getActualTypeArguments()));
+        }
+
+        // for setter
+        System.out.println("Setter");
+        Method setterVarianListMethod = productClass.getDeclaredMethod("setVarianList", List.class);
+        Type[] types = setterVarianListMethod.getGenericParameterTypes();
+
+        for (Type t : types) {
+            if (t instanceof ParameterizedType) {
+                ParameterizedType parameterizedType = (ParameterizedType) t;
+                // java.util.List<java.lang.String>
+                System.out.println(parameterizedType.getTypeName());
+                // interface java.util.List
+                System.out.println(parameterizedType.getRawType());
+                // [class java.lang.String]
+                System.out.println(Arrays.toString(parameterizedType.getActualTypeArguments()));
+            }
+        }
     }
 }
