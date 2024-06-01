@@ -63,3 +63,5 @@ This repository serves as a demonstration of fundamental Java concepts. Each sec
 2. [Custom Annotations and Verification:](https://github.com/dwinanto34/Java/commit/e59303384ee08f616e29911aad67ee4258158ae3)
 3. [Parameterized Types like map, list, etc](https://github.com/dwinanto34/Java/commit/c896ce97b88cda9c3fa11fc49eabbda0bc40f4d4)
 
+## Java Data Structure
+1. [Primitive, Object, Collection, Synchronized collection, Maps, Queues, and Stacks](https://github.com/dwinanto34/Java/commit/8bc13d4cdf2bba4ac00227cbe53e17809abd5cf8)
