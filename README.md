@@ -71,3 +71,12 @@ This repository serves as a demonstration of fundamental Java concepts. Each sec
 2. Read and write file
 3. Open option
 4. Object stream
+
+## Java Database Connectivity (JDBC)
+1. [JDBC Maven dependency](https://github.com/dwinanto34/Java/commit/5c175e37bd14ef3b0b00ae8bdbbd55822a39925a)
+2. [JDBC Connection](https://github.com/dwinanto34/Java/commit/5b68a32fc1ec0a0c9a0d88ba45c92f6a1ed78dbe)
+3. [JDBC HikariCP Connection pool](https://github.com/dwinanto34/Java/commit/cd6ec247284ef4d059d14ca848d82ef01245b0ad)
+4. [JDBC Execute statement](https://github.com/dwinanto34/Java/commit/e9c9e95026a1eff4de502ed02cca4676170ba8b9)
+5. [JDBC Prepared statement](https://github.com/dwinanto34/Java/commit/ff5f04fff80016378dc862c71c7a697e4d9fe753)
+6. [JDBC Batch process](https://github.com/dwinanto34/Java/commit/806c6ee79461136add94ea890048672a491a9965)
+
