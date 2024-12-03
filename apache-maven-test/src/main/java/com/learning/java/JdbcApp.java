@@ -74,6 +74,23 @@ public class JdbcApp {
         }
     }
 
+    private static void executeBatchInsertData(Connection conn) throws Exception {
+        String query1 = "INSERT INTO general_products(id, name, description, price) " +
+                "VALUES ('0005', 'iPhone 5', 'this is iPhone 5', 1000);";
+        String query2 = "INSERT INTO general_products(id, name, description, price) " +
+                "VALUES ('0006', 'iPhone 6', 'this is iPhone 6', 1000);";
+        String query3 = "INSERT INTO general_products(id, name, description, price) " +
+                "VALUES ('0007', 'iPhone 7', 'this is iPhone 7', 1000);";
+
+        try (Statement stmt = conn.createStatement()) {
+            stmt.addBatch(query1);
+            stmt.addBatch(query2);
+            stmt.addBatch(query3);
+            int[] affected = stmt.executeBatch();
+            System.out.println("Insert data using batch process: " + (affected[0] + affected[1] + affected[2]));
+        }
+    }
+
     private static void executeGetData(Connection conn) throws Exception {
         String query = "SELECT * FROM general_products";
         try (Statement stmt = conn.createStatement();
@@ -122,6 +139,8 @@ public class JdbcApp {
             executeInsertData(conn);
             // insert data using prepared statement to prevent SQL injection
             executePreparedStatement(conn);
+            // insert data using batch execution
+            executeBatchInsertData(conn);
             executeGetData(conn);
             executeDropTable(conn);
         } catch (Exception e) {
