@@ -6,5 +6,8 @@ package com.learning.java;
 public class App {
     public static void main(String[] args) {
         System.out.println("Apache Maven Project!");
+
+        // Java Database Connectivity
+        JdbcApp.run();
     }
 }
