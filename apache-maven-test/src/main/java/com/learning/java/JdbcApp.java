@@ -4,10 +4,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class JdbcApp {
     // HikariCP -- Connection pool
@@ -63,6 +60,20 @@ public class JdbcApp {
         }
     }
 
+    private static void executePreparedStatement(Connection conn) throws Exception {
+        String query = "INSERT INTO general_products(id, name, description, price) " +
+                "VALUES (?, ?, ?, ?);";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, "0004");
+            stmt.setString(2, "iPhone 4");
+            stmt.setString(3, "this is iPhone 4");
+            stmt.setBigDecimal(4, new BigDecimal(1000));
+
+            int affected = stmt.executeUpdate();
+            System.out.println("Insert data using prepared statement: " + affected);
+        }
+    }
+
     private static void executeGetData(Connection conn) throws Exception {
         String query = "SELECT * FROM general_products";
         try (Statement stmt = conn.createStatement();
@@ -109,6 +120,8 @@ public class JdbcApp {
 
             executeCreateTable(conn);
             executeInsertData(conn);
+            // insert data using prepared statement to prevent SQL injection
+            executePreparedStatement(conn);
             executeGetData(conn);
             executeDropTable(conn);
         } catch (Exception e) {
