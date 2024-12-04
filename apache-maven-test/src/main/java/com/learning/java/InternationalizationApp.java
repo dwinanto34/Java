@@ -3,6 +3,7 @@ package com.learning.java;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -85,10 +86,29 @@ public class InternationalizationApp {
         System.out.println(num.longValue()); // output: 1000000
     }
 
+    private static void currency() throws ParseException {
+        // Reference: https://www.iso.org/iso-4217-currency-codes.html
+        Locale indonesia = new Locale("id", "ID");
+        Currency currency = Currency.getInstance(indonesia);
+        System.out.println(currency.getDisplayName()); // output: Indonesian Rupiah
+        System.out.println(currency.getCurrencyCode()); // output: IDR
+
+        // Create a currency-specific NumberFormat instance for the Indonesian locale.
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(indonesia);
+        String format = numberFormat.format(1000000.255);
+        System.out.println(format); // output: Rp1.000.000,26
+
+        // Parse a formatted currency string back into a numeric value.
+        Number num = numberFormat.parse("Rp1.000.000,26");
+        System.out.println(num.doubleValue()); // output: 1000000.26
+        System.out.println(num.longValue()); // output: 1000000
+    }
+
     public static void run() throws ParseException {
         locale();
         resourceBundle();
         dateFormatter();
         numberFormatter();
+        currency();
     }
 }
