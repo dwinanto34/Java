@@ -80,3 +80,12 @@ This repository serves as a demonstration of fundamental Java concepts. Each sec
 5. [JDBC Prepared statement](https://github.com/dwinanto34/Java/commit/ff5f04fff80016378dc862c71c7a697e4d9fe753)
 6. [JDBC Batch process](https://github.com/dwinanto34/Java/commit/806c6ee79461136add94ea890048672a491a9965)
 
+## Java Internationalization (Java I18N)
+1. [Locale](https://github.com/dwinanto34/Java/commit/aee4e3d16f4395028b90fa5582322cdaf5e4e5d8)
+2. [Resource Bundle](https://github.com/dwinanto34/Java/commit/40cfddda533e1adc17e21237d2e82d1626069539)
+3. [Date and Time](https://github.com/dwinanto34/Java/commit/92a381264558264dcd569a337310367f53808fe9)
+4. [Numbers](https://github.com/dwinanto34/Java/commit/227201496adc7dc7bd25c6358e7ca3463a79d818)
+5. [Currency](https://github.com/dwinanto34/Java/commit/5d688b94bd1770386d27f0229e827c7caa8a8ed9)
+6. [Message Format](https://github.com/dwinanto34/Java/commit/e7dfaa19b06c8820aa6c6a6709c4d36faa331443)
+7. [Message Format Type](https://github.com/dwinanto34/Java/commit/1f0bdf1b1e2f72a34b3044de9c89d1c8f9c5434f)
+8. [Choice Format](https://github.com/dwinanto34/Java/commit/9d119803cae1b9db798d1d853cefa8e85dd5767a)
