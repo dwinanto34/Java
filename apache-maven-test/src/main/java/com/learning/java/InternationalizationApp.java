@@ -1,9 +1,6 @@
 package com.learning.java;
 
-import java.text.MessageFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.text.*;
 import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
@@ -139,6 +136,26 @@ public class InternationalizationApp {
         System.out.println(format); // output: Hai Budi,  Kamis 05 Desember 2024, saldo anda adalah Rp1.000.000,00
     }
 
+    private static void choiceFormat() {
+        Locale indonesia = new Locale("id", "ID");
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message", indonesia);
+
+        // The pattern uses both number formatting and choice formatting.
+        String pattern = resourceBundle.getString("balance.status");
+
+        // Choice format
+        // - {0, choice}: Selects the appropriate choice text based on the value of {0}.
+        // -1#hutang: For values less than 0, displays "hutang".
+        // 0#kosong: For a value of 0, displays "kosong"
+        // 1#tersedia: For values greater than 0, displays "tersedia"
+        MessageFormat messageFormat = new MessageFormat(pattern, indonesia);
+        String format = messageFormat.format(new Object[]{
+            -1000
+        });
+
+        System.out.println(format); // output: Saldo: -Rp1.000,00 hutang
+    }
+
     public static void run() throws ParseException {
         locale();
         resourceBundle();
@@ -147,5 +164,6 @@ public class InternationalizationApp {
         currency();
         messageFormatter();
         messageFormatterType();
+        choiceFormat();
     }
 }
