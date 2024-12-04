@@ -1,5 +1,6 @@
 package com.learning.java;
 
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -64,9 +65,30 @@ public class InternationalizationApp {
         System.out.println(date);
     }
 
+    private static void numberFormatter() throws ParseException {
+        // Format a number into a string with the default locale (e.g., en_US).
+        // Example: 1,000,000.255 (comma as the thousands separator, period as the decimal separator)
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        String format = numberFormat.format(1000000.255); // output: 1,000,000.255
+        System.out.println(format);
+
+        // Use a specific locale (e.g., Indonesian) to format numbers.
+        // Example: 1.000.000,255 (period as the thousands separator, comma as the decimal separator)
+        Locale indonesia = new Locale("id", "ID");
+        NumberFormat indonesiaNumberFormat = NumberFormat.getInstance(indonesia);
+        String indonesiaFormat = indonesiaNumberFormat.format(1000000.255); // output: 1.000.000,255
+        System.out.println(indonesiaFormat);
+
+        // Parse a formatted string back into a Number object using the same locale.
+        Number num = indonesiaNumberFormat.parse("1.000.000,255");
+        System.out.println(num.doubleValue()); // output: 1000000.255
+        System.out.println(num.longValue()); // output: 1000000
+    }
+
     public static void run() throws ParseException {
         locale();
         resourceBundle();
         dateFormatter();
+        numberFormatter();
     }
 }
