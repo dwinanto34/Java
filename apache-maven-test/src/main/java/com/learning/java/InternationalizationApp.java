@@ -122,6 +122,23 @@ public class InternationalizationApp {
         System.out.println(format); // output: Hai Budi, selamat datang di halaman GitHub, Budi
     }
 
+    private static void messageFormatterType() {
+        Locale indonesia = new Locale("id", "ID");
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message", indonesia);
+
+        String pattern = resourceBundle.getString("balance");
+        // The locale ensures proper formatting of date and number types.
+        MessageFormat messageFormat = new MessageFormat(pattern, indonesia);
+
+        String format = messageFormat.format(new Object[]{
+            "Budi",
+            new Date(),
+            1000000
+        });
+
+        System.out.println(format); // output: Hai Budi,  Kamis 05 Desember 2024, saldo anda adalah Rp1.000.000,00
+    }
+
     public static void run() throws ParseException {
         locale();
         resourceBundle();
@@ -129,5 +146,6 @@ public class InternationalizationApp {
         numberFormatter();
         currency();
         messageFormatter();
+        messageFormatterType();
     }
 }
