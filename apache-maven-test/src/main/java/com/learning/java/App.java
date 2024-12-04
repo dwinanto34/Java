@@ -9,5 +9,8 @@ public class App {
 
         // Java Database Connectivity
         JdbcApp.run();
+
+        // Java I18N
+        InternationalizationApp.run();
     }
 }
