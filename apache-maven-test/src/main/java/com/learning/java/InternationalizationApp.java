@@ -1,5 +1,8 @@
 package com.learning.java;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -40,8 +43,30 @@ public class InternationalizationApp {
         System.out.println(resourceBundleUS.getString("hello"));
     }
 
-    public static void run() {
+    private static void dateFormatter() throws ParseException {
+        // Create a SimpleDateFormat instance with a specific pattern.
+        // Reference: https://docs.oracle.com/javase/jp/8/docs/api/java/text/SimpleDateFormat.html
+        String datePattern = "EEEE dd MMMM yyyy";
+
+        // Format the current date using the default locale
+        SimpleDateFormat sdf = new SimpleDateFormat(datePattern);
+        String format = sdf.format(new Date());
+        System.out.println(format); // Example output: Thursday 05 December 2024
+
+        // Format the current date using the Indonesian locale
+        Locale indonesia = new Locale("id", "ID");
+        SimpleDateFormat indonesiaSdf = new SimpleDateFormat(datePattern, indonesia);
+        String indonesiaFormat = indonesiaSdf.format(new Date());
+        System.out.println(indonesiaFormat); // Example output: Kamis 05 Desember 2024
+
+        // Parse a date string into a Date object using the Indonesian locale
+        Date date = indonesiaSdf.parse("Kamis 05 Desember 2024");
+        System.out.println(date);
+    }
+
+    public static void run() throws ParseException {
         locale();
         resourceBundle();
+        dateFormatter();
     }
 }
