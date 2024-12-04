@@ -1,5 +1,6 @@
 package com.learning.java;
 
+import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -104,11 +105,29 @@ public class InternationalizationApp {
         System.out.println(num.longValue()); // output: 1000000
     }
 
+    private static void messageFormatter() {
+        Locale indonesia = new Locale("id", "ID");
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message", indonesia);
+
+        // Retrieve a pattern string from the resource bundle using its key.
+        // Example pattern (in message_id_ID.properties):
+        // welcome.message=Hai {0}, selamat datang di halaman GitHub, {0}
+        String pattern = resourceBundle.getString("welcome.message");
+        // MessageFormat supports parameterized placeholders like {0}, {1}, etc.
+        MessageFormat messageFormat = new MessageFormat(pattern);
+        String format = messageFormat.format(new Object[] {
+            "Budi"
+        });
+
+        System.out.println(format); // output: Hai Budi, selamat datang di halaman GitHub, Budi
+    }
+
     public static void run() throws ParseException {
         locale();
         resourceBundle();
         dateFormatter();
         numberFormatter();
         currency();
+        messageFormatter();
     }
 }
