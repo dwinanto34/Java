@@ -22,7 +22,26 @@ public class InternationalizationApp {
         System.out.println(locale.getDisplayCountry());
     }
 
+    private static void resourceBundle() {
+        // Access values from the default properties file (message.properties)
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
+        System.out.println(resourceBundle.getString("hello"));
+
+        // Access the resource bundle for the Indonesian locale (message_id_ID.properties).
+        // <filename>_<language>_<country>.properties
+        Locale indonesia = new Locale("id", "ID");
+        ResourceBundle resourceBundleIndonesia = ResourceBundle.getBundle("message", indonesia);
+        System.out.println(resourceBundleIndonesia.getString("hello"));
+
+        // Access the resource bundle for the US locale (message_en_US.properties).
+        // If the specific file does not exist, the default file (message.properties) will be used.
+        Locale unitedStates = new Locale("en", "US");
+        ResourceBundle resourceBundleUS = ResourceBundle.getBundle("message", unitedStates);
+        System.out.println(resourceBundleUS.getString("hello"));
+    }
+
     public static void run() {
         locale();
+        resourceBundle();
     }
 }
