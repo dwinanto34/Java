@@ -40,8 +40,21 @@ public class JsonApp {
         System.out.println(person.get("address"));
     }
 
+    private static void jsonArray() throws JsonProcessingException {
+        List<String> products = List.of("Phone", "Bike", "Car");
+
+        // Convert collection to string
+        String json = objectMapper.writeValueAsString(products);
+        System.out.println(json);
+
+        // Convert string to collection
+        List<String> productList = objectMapper.readValue(json, new TypeReference<List<String>>() {});
+        System.out.println(productList);
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
+        jsonArray();
     }
 }
