@@ -79,3 +79,14 @@ This repository serves as a demonstration of fundamental Java concepts. Each sec
 6. [Message Format](https://github.com/dwinanto34/Java/commit/e7dfaa19b06c8820aa6c6a6709c4d36faa331443)
 7. [Message Format Type](https://github.com/dwinanto34/Java/commit/1f0bdf1b1e2f72a34b3044de9c89d1c8f9c5434f)
 8. [Choice Format](https://github.com/dwinanto34/Java/commit/9d119803cae1b9db798d1d853cefa8e85dd5767a)
+
+## Java JSON
+1. [writeValueAsString](https://github.com/dwinanto34/Java/commit/c6163a63d9f1a5aee51369ad6f54ac76e5f0827f)
+2. [readValue](https://github.com/dwinanto34/Java/commit/a6ed1d3f653227e626809120d1151dbb1f025338)
+3. [Array](https://github.com/dwinanto34/Java/commit/a0a33720f370e88f4020aca5d0f18ce6da5b87c3)
+4. [Object Bean](https://github.com/dwinanto34/Java/commit/ca0db9754dfc7efb1571086b4a73f50b93912c19)
+5. [Mapper Features](https://github.com/dwinanto34/Java/commit/38f21ec26fa1c31d392f2d16b841de57a9f2022d)
+6. [Deserialization features](https://github.com/dwinanto34/Java/commit/c7122fd05fc71e5c0ab881aea5dd1997118b2750)
+7. [Serialization features](https://github.com/dwinanto34/Java/commit/66cb367acb689e22f82ad48f4cf48ce874685991)
+8. [Serialization Inclusion](https://github.com/dwinanto34/Java/commit/1639849ccd934edfd2e55f93fea7ae20c99636ed)
+9. [Jackson Annotation](https://github.com/dwinanto34/Java/commit/49b2502ea5da8c411da252c9ab897c6b4ad47a02)
