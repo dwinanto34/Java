@@ -1,5 +1,6 @@
 package com.learning.java;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -143,6 +144,22 @@ public class JsonApp {
         System.out.println(json);
     }
 
+    private static void serializationInclusion() throws JsonProcessingException {
+        // Reference: https://fasterxml.github.io/jackson-annotations/javadoc/2.7/com/fasterxml/jackson/annotation/JsonInclude.Include.html
+
+        // Configure ObjectMapper to include only non-null fields during serialization
+        ObjectMapper serializationInclusionObjectMapper = new ObjectMapper()
+                .setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
+        // Create a person object with only the firstName field set
+        Person person = new Person();
+        person.setFirstName("Christian");
+
+        // Only include non-null fields
+        String json = serializationInclusionObjectMapper.writeValueAsString(person);
+        System.out.println(json); // Output: {"firstName":"Christian"}
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
@@ -151,5 +168,6 @@ public class JsonApp {
         mapperFeatures();
         deserializationFeatures();
         serializationFeatures();
+        serializationInclusion();
     }
 }
