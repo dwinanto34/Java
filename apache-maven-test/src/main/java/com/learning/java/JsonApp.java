@@ -3,8 +3,9 @@ package com.learning.java;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learning.java.model.Address;
+import com.learning.java.model.Person;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
@@ -52,9 +53,32 @@ public class JsonApp {
         System.out.println(productList);
     }
 
+    private static void jsonObjectBean() throws JsonProcessingException {
+        Person person = new Person();
+        person.setFirstName("Mary");
+        person.setLastName("Kristen");
+        person.setAge(29);
+
+        Address address = new Address();
+        address.setStreet("St. two");
+        address.setCity("California");
+        address.setCountry("USA");
+
+        person.setAddress(address);
+
+        // Convert person object into string
+        String json = objectMapper.writeValueAsString(person);
+        System.out.println(json);
+
+        // Convert string into person object
+        Person maryKristen = objectMapper.readValue(json, Person.class);
+        System.out.println(maryKristen);
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
         jsonArray();
+        jsonObjectBean();
     }
 }
