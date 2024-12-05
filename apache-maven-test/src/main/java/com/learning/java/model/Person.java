@@ -1,10 +1,35 @@
 package com.learning.java.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Person {
     private String firstName;
     private String lastName;
     private Integer age;
     private Address address;
+
+    @JsonIgnore
+    private String ignoreField;
+
+    @JsonProperty("middle_name")
+    private String middleName;
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getIgnoreField() {
+        return ignoreField;
+    }
+
+    public void setIgnoreField(String ignoreField) {
+        this.ignoreField = ignoreField;
+    }
 
     public String getFirstName() {
         return firstName;

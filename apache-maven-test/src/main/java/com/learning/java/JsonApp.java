@@ -160,6 +160,18 @@ public class JsonApp {
         System.out.println(json); // Output: {"firstName":"Christian"}
     }
 
+    private static void jacksonAnnotation() throws JsonProcessingException {
+        Person person = new Person();
+        person.setFirstName("Christian");
+        // This field will be ignored during serialization
+        person.setIgnoreField("Ignore value");
+        // The "middleName" field will be serialized as "middle_name"
+        person.setMiddleName("John");
+
+        String json = objectMapper.writeValueAsString(person);
+        System.out.println(json); // Output: {"firstName":"Christian","lastName":null,"age":null,"address":null,"middle_name":"John"}
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
@@ -169,5 +181,6 @@ public class JsonApp {
         deserializationFeatures();
         serializationFeatures();
         serializationInclusion();
+        jacksonAnnotation();
     }
 }
