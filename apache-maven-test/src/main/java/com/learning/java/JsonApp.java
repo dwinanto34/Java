@@ -2,8 +2,10 @@ package com.learning.java;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.learning.java.model.Address;
 import com.learning.java.model.Person;
 
@@ -106,11 +108,35 @@ public class JsonApp {
         System.out.println(person);
     }
 
+    private static void deserializationFeatures() throws JsonProcessingException {
+        // Reference: https://github.com/FasterXML/jackson-databind/wiki/Deserialization-Features
+
+        // Configure ObjectMapper to ignore unknown properties during deserialization
+        ObjectMapper deserializationObjectMapper = new ObjectMapper()
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        // Represent a person object as a Map with some unknown keys
+        Map<String, Object> personMap = Map.of(
+            "firstName", "John",
+            "unknownKey", "Hello"
+        );
+
+        // Convert the personMap into a JSON string
+        String json = objectMapper.writeValueAsString(personMap);
+        System.out.println(json);
+
+        // Attempt to deserialize the JSON string back into a Person object
+        // The configured ObjectMapper will ignore the unknown "unknownKey"
+        Person person = deserializationObjectMapper.readValue(json, Person.class);
+        System.out.println(person);
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
         jsonArray();
         jsonObjectBean();
         mapperFeatures();
+        deserializationFeatures();
     }
 }
