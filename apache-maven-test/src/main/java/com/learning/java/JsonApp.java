@@ -2,6 +2,7 @@ package com.learning.java;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learning.java.model.Address;
 import com.learning.java.model.Person;
@@ -75,10 +76,41 @@ public class JsonApp {
         System.out.println(maryKristen);
     }
 
+    private static void mapperFeatures() throws JsonProcessingException {
+        // Reference: https://github.com/FasterXML/jackson-databind/wiki/Mapper-Features
+
+        // Configure ObjecMapper to be case-insensitive for property names
+        ObjectMapper insensitiveObjectMapper = new ObjectMapper()
+                .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+
+        // Represent a person object as a Map with uppercase keys
+        Map<String, Object> personMap = Map.of(
+            "FIRSTNAME", "John",
+            "LASTNAME", "Christian",
+            "AGE", 31,
+            "ADDRESS", Map.of(
+                "STREET", "St. one",
+                "CITY", "Zurich",
+                "COUNTRY", "Switzerland"
+            )
+        );
+
+        // Convert the personMap into a JSON string
+        // The resulting JSON will have uppercase property names as keys
+        String upperCaseJson = objectMapper.writeValueAsString(personMap);
+        System.out.println(upperCaseJson);
+
+        // Attempt to deserialize the JSON string back into a Person object
+        // The case-insensitive mapper will map uppercase keys in JSON to lowercase fields in the Person class
+        Person person = insensitiveObjectMapper.readValue(upperCaseJson, Person.class);
+        System.out.println(person);
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
         jsonArray();
         jsonObjectBean();
+        mapperFeatures();
     }
 }
