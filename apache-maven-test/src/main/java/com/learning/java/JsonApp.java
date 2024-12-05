@@ -31,7 +31,17 @@ public class JsonApp {
         return json;
     }
 
+    private static void readValue(String json) throws JsonProcessingException {
+        // Convert string into map object
+        Map<String, Object> person = objectMapper.readValue(json, new TypeReference<Map<String, Object>>() {});
+        System.out.println(person.get("firstName"));
+        System.out.println(person.get("lastName"));
+        System.out.println(person.get("age"));
+        System.out.println(person.get("address"));
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
+        readValue(json);
     }
 }
