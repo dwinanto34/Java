@@ -131,6 +131,18 @@ public class JsonApp {
         System.out.println(person);
     }
 
+    private static void serializationFeatures() throws JsonProcessingException {
+        // Reference: https://github.com/FasterXML/jackson-databind/wiki/Serialization-Features
+
+        ObjectMapper serializationObjectMapper = new ObjectMapper()
+                .configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        // Serialize a new Person object into a JSON string
+        // The INDENT_OUTPUT feature ensures the JSON is formatted for readability
+        String json = serializationObjectMapper.writeValueAsString(new Person());
+        System.out.println(json);
+    }
+
     public static void run() throws JsonProcessingException {
         String json = writeValueAsString();
         readValue(json);
@@ -138,5 +150,6 @@ public class JsonApp {
         jsonObjectBean();
         mapperFeatures();
         deserializationFeatures();
+        serializationFeatures();
     }
 }
