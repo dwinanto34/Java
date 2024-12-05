@@ -217,7 +217,6 @@ public class ThreadApp {
             }
         });
 
-
         Thread thread2 = new Thread(() -> {
             synchronized(lock) {
                 try {
@@ -303,7 +302,6 @@ public class ThreadApp {
     private static int counter = 0;
     private static void periodicJob() throws InterruptedException {
         Timer timer = new Timer();
-
 
         TimerTask timerTask = new TimerTask() {
             @Override
