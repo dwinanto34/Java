@@ -48,6 +48,7 @@ This repository serves as a demonstration of fundamental Java concepts. Each sec
 2. [Synchronizer functions like Semaphore, Count down latch, Cyclic barrier, Phaser, and Exchanger](https://github.com/dwinanto34/Java/commit/ab432d5baeff94533a54acf82a809c96a325df1c)
 3. [Data Type Safe Thread](https://github.com/dwinanto34/Java/commit/a09bf92a6150cd65fc762de2ec9ff9e4092427b9)
 4. [Fork and Join](https://github.com/dwinanto34/Java/commit/002387cea298840a2436835f7f1b42984d2bd549)
+5. [Virtual Thread](https://github.com/dwinanto34/Java/commit/024395f969cb9f33fa82050cc275dbe28e3d534a)
 
 ## Java Reflection
 1. [Class, Fields, Methods, Parameters, Constructors, Superclass, Modifiers, and Packages:](https://github.com/dwinanto34/Java/commit/c73f1de6408d19b3f0284fe1e539a716e2fca0b9)
