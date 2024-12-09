@@ -11,5 +11,6 @@ public class DateTime {
         TimeZoneApp.run();
         ClockApp.run();
         DurationApp.run();
+        PeriodApp.run();
     }
 }
