@@ -15,5 +15,8 @@ public class DateTime {
         TemporalApp.run();
         DayOfWeekApp.run();
         ParserAndFormatterApp.run();
+
+        // Conversion from legacy code to new library
+        ConversionFromLegacyLibraryToDateTimeApp.run();
     }
 }
