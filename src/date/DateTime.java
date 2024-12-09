@@ -9,5 +9,6 @@ public class DateTime {
         LocalDateTimeApp.run();
         YearDateTimeApp.run();
         TimeZoneApp.run();
+        ClockApp.run();
     }
 }
