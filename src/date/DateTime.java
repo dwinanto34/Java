@@ -14,5 +14,6 @@ public class DateTime {
         PeriodApp.run();
         TemporalApp.run();
         DayOfWeekApp.run();
+        ParserAndFormatterApp.run();
     }
 }
