@@ -18,7 +18,6 @@ public class CollectionApp {
 
         // Map
         map();
-
     }
 
     private static void iterator() {

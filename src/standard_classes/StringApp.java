@@ -43,6 +43,5 @@ public class StringApp {
             String token = stringTokenizer.nextToken();
             System.out.println(token);
         }
-
     }
 }

@@ -10,7 +10,6 @@ public class GenericApp {
         covariant();
         contravariant();
         boundedGenericData();
-
     }
 
     private static void basic() {
