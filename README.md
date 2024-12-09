@@ -23,9 +23,10 @@ This repository serves as a demonstration of fundamental Java concepts. Each sec
 ## Java Generics
 1. [Generic type, Method, Invariant, Covariant, Contravariant, Bounded type parameter.](https://github.com/dwinanto34/Java/commit/ca53340456f138fb4db847f88e2e214f4a4d38d3)
 
-## [Java Collections](https://github.com/dwinanto34/Java/commit/8f7e37dfa36b5448e01121cb75bf06a43ee8ee11)
-1. Iterable and iterator
-2. Collections: List, set, queue, and map.
+## Java Collections
+1. [Iterable and iterator](https://github.com/dwinanto34/Java/commit/8f7e37dfa36b5448e01121cb75bf06a43ee8ee11)
+2. [Collections: List, set, queue, and map](https://github.com/dwinanto34/Java/commit/8f7e37dfa36b5448e01121cb75bf06a43ee8ee11)
+3. [Java Sequenced Collection](https://github.com/dwinanto34/Java/commit/58d4e8e61ff452e6a6462f042a0f61396db1539e)
 
 ## Java Lambda
 1. [Lambda Basics, Functional Interfaces, Method Reference, and Usage in Collections](https://github.com/dwinanto34/Java/commit/162cab167fb1c37834cc1a891ad18ab0671515d8)
