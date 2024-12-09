@@ -8,5 +8,6 @@ public class DateTime {
         // Java Date and Time API was introduced in Java 8
         LocalDateTimeApp.run();
         YearDateTimeApp.run();
+        TimeZoneApp.run();
     }
 }
